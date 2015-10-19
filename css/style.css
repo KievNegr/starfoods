@@ -158,12 +158,12 @@ h4 {
 }
 
 #header {
-	background-image: url('../img/header_background.jpg');
+	background-color: #C79A63;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 100px;
     z-index: 7;
 }
 
@@ -226,7 +226,7 @@ h4 {
 #hello-field {
 	/*background: rgb(255, 255, 252);*/
     background-image: url('../img/strip.png');
-    margin-top: 98%;
+    margin-top: 100px;
     width: 100%;
     padding: 80px 1% 60px 1%;
 }
@@ -486,6 +486,22 @@ h4 {
 
 #adv-field .frozen {
     background-image: url('../img/frozen.png');
+}
+
+#product {
+    width: 90%;
+    padding: 20px 5%;
+    margin-top: 100px;
+}
+
+#product .h5 {
+    border-bottom: 2px solid #69695D;
+    display: inline-block;
+    font-family: OpenSansCond;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #69695D;
+    padding: 0 10px 5px 0;
 }
 
 #footer {
