@@ -71,9 +71,24 @@ $(document).ready(function()
 					'phone': phone,
 					'pass': pass
 				},*/
+				beforeSend: send,
+				complete: compl,
 				success: okLoad
 			});
 	});
+
+	function send ()
+	{
+		$('.uil-ring-css').show();
+	}
+
+	function compl ()
+	{
+		$('.uil-ring-css').delay(1000).queue(function(){
+			$(this).hide();
+			$(this).dequeue();
+		});
+	}
 
 	function okLoad(data)
 	{
@@ -82,8 +97,6 @@ $(document).ready(function()
 			$(this).dequeue();
 		});
 
-		$('.pre-load-back').animate({
-			'backgroundPosition': '0% 100%'
-		}, 100);
+		
 	}
 });
