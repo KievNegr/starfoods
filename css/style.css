@@ -118,7 +118,7 @@ body {
 h1 {
     font-family: MarckScript;
     font-size: 4em;
-    color: #2D2922;
+    color: #303030;
 }
 
 h2 {
@@ -137,6 +137,23 @@ h4 {
     font-family: OpenSansCond;
     font-size: 1.6em;
     color: #7D7E1A;
+}
+
+h5 {
+    font-family: OpenSans;
+    font-weight: bold;
+    font-size: 1.2em;
+    color: #303030;
+}
+
+.h5 {
+    border-bottom: 1px solid rgba(48, 48, 48, 0.29);
+    display: inline-block;
+    font-family: OpenSansCond;
+    font-size: 1.3em;
+    /* font-weight: bold; */
+    color: #303030;
+    padding: 0 10px 5px 0;
 }
 
 .center {
@@ -158,7 +175,7 @@ h4 {
 }
 
 #header {
-	background-color: #C79A63;
+	background-color: rgb(98, 29, 16);
     position: fixed;
     top: 0;
     left: 0;
@@ -172,7 +189,7 @@ h4 {
     margin: 0 auto;
     position: absolute;
     left: 8%;
-    bottom: 34px;
+    bottom: 37px;
 }
 
 #header .menu li{
@@ -219,7 +236,7 @@ h4 {
     height: 80%;
     position: absolute;
     left: 50%;
-    top: 0;
+    top: 10px;
     margin: 0 0 20px -26.5%;
 }
 
@@ -492,16 +509,186 @@ h4 {
     width: 90%;
     padding: 20px 5%;
     margin-top: 100px;
+    /*background-image: url('../img/strip3.png');*/
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#e7edd3+0,e5e8dc+100 */
+    background: #e7edd3; /* Old browsers */
+    background: -moz-radial-gradient(center, ellipse cover,  #e7edd3 0%, #e5e8dc 100%); /* FF3.6+ */
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#e7edd3), color-stop(100%,#e5e8dc)); /* Chrome,Safari4+ */
+    background: -webkit-radial-gradient(center, ellipse cover,  #e7edd3 0%,#e5e8dc 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-radial-gradient(center, ellipse cover,  #e7edd3 0%,#e5e8dc 100%); /* Opera 12+ */
+    background: -ms-radial-gradient(center, ellipse cover,  #e7edd3 0%,#e5e8dc 100%); /* IE10+ */
+    background: radial-gradient(ellipse at center,  #e7edd3 0%,#e5e8dc 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e7edd3', endColorstr='#e5e8dc',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 }
 
-#product .h5 {
-    border-bottom: 2px solid #69695D;
+#product .img-box {
+    float: left;
+    width: 65%;
+    margin-top: 20px;
+}
+
+#product .img-box .large{
+    max-width: 100%;
+    height: 300px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50%;
+}
+
+#product .img-box ul.list-img li {
+    float: left;
+    margin-right: 10px;
+    padding: 10px;
+    border: 1px dashed transparent;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+#product .img-box ul.list-img li:hover {
+    background-color: rgb(219, 220, 121);
+}
+
+#product .img-box ul.list-img .active{
+    border: 1px dashed #C79A63;
+}
+
+#product .descr-box {
+    float: left;
+    width: 35%;
+}
+
+#product .descr-box p {
+    font-family: HelveticaNeueLTW1G-Roman;
+    font-size: .875em;
+    line-height: 21px;
+    margin-top: 15px;
+    color: #303030;
+}
+
+#product .technical-data {
     display: inline-block;
-    font-family: OpenSansCond;
-    font-size: 1.2em;
+    background-color: rgba(98, 29, 16, 0.11);
+    padding: 10px 0 10px 20px;
+    border-radius: 10px;
+    margin: 20px 0 0 0;
+}
+
+#product .technical-data li{
+    float: left;
+    margin-right: 20px;
+    padding: 3px 0 0 30px;
+    font-family: HelveticaNeueLTW1G-BdCn;
+    font-size: 1.5em;
+    color: #303030;
+}
+
+#product .technical-data .weight{
+    background-image: url('../img/li_weight.png');
+    background-repeat: no-repeat;
+    background-position: 0px 4px;
+}
+
+#product .technical-data .parts{
+    background-image: url('../img/li_parts.png');
+    background-repeat: no-repeat;
+    background-position: 0 1px;
+}
+
+#product .technical-data .diam{
+    background-image: url('../img/li_diam.png');
+    background-repeat: no-repeat;
+    background-position: 0 3px;
+}
+
+#product .buy-field {
+    margin: 20px 2% 0 0;
+}
+
+#product .buy-field .price {
+    font-family: HelveticaNeueLTW1G-BdCn;
+    font-size: 2em;
+    color: #CC5C4A;
+    margin: 4px 0 0 0;
+    float: left;
+}
+
+#product input[type="button"] {
+    margin: 0px 0px 0px 20px;
+    background-color: transparent;
+    border: 1px solid #ABD6B4;
+    font-family: OpenSans;
     font-weight: bold;
-    color: #69695D;
-    padding: 0 10px 5px 0;
+    color: #35613E;
+    font-size: .675em;
+    padding: 8px 40px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+#product input[type="button"]:hover {
+    background-color: rgba(171, 214, 180, .6);
+}
+
+#contacts {
+    width: 90%;
+    padding: 20px 5%;
+    margin-top: 100px;
+    /*background-image: url('../img/strip3.png');*/
+    background: #FFF;
+}
+
+#contacts .build {
+    float: left;
+    background-image: url('../img/building.png');
+    background-repeat: no-repeat;
+    background-position: top center;
+    padding: 95px 0 0 0;
+    width: 20%;
+    text-align: center;
+    margin: 30px 5% 0 25%;
+}
+
+#contacts .contact {
+    float: left;
+    background-image: url('../img/contact.png');
+    background-repeat: no-repeat;
+    background-position: top center;
+    padding: 95px 0 0 0;
+    width: 20%;
+    text-align: center;
+    margin: 30px 25% 0 5%;
+}
+
+#contacts .map {
+    margin-top: 50px;
+    box-shadow: 0 0 20px rgba(58, 64, 12, 0.38);
+}
+
+#contacts .build p,
+#contacts .contact p
+ {
+    font-family: HelveticaNeueLTW1G-Roman;
+    font-size: .875em;
+    font-weight: bold;
+    margin: 10px 0 7px 0;
+    color: #353535;
+}
+
+#about {
+    width: 90%;
+    padding: 20px 5%;
+    margin-top: 100px;
+    /*background-image: url('../img/strip3.png');*/
+    background: #FFF;
+}
+
+#about .short-descr {
+    font-family: OpenSansCond;
+    width: 50%;
+    margin: 20px;
+    line-height: 23px;
+    color: #303030;
+    font-size: 1.1em;
 }
 
 #footer {

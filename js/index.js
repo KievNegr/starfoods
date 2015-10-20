@@ -51,7 +51,7 @@ $(document).ready(function()
 				top: '0'
 			}, 600);
 
-			$('#header').css({'background-image': 'url(../img/header_background.jpg)', 'background-color':'none'});
+			$('#header').css({'background-image': 'url(http://starfoods/img/header_background.jpg)', 'background-color':'none'});
 		}
 	});
 });
