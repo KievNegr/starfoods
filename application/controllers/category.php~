@@ -1,0 +1,227 @@
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+
+class Category extends CI_Controller {
+	
+	function __construct()
+	{
+		parent::__construct();
+		$this->load->helper('url');
+		$this->load->model('category_md');
+		$this->load->model('main_md');
+		$this->load->library('cart');
+		$this->load->model('product_md');
+		$this->load->model('admin_md');
+		$this->load->helper('form');
+		$this->load->library('form_validation');
+	}
+
+	public function get($input_category)
+	{	
+		$data['settings'] = $this->admin_md->get_settings();
+		
+		$data['page'] = $this->main_md->get_pages();
+		$id_category = $this->category_md->get_id_category($input_category);
+		$data['category'] = $this->category_md->get_category($id_category['id_category']);
+		$data['parent_category'] = $this->main_md->get_parent_category();
+		$data['products'] = $this->category_md->get_products($id_category['id_category']);
+		$data['default_money'] = $this->product_md->get_default_money();
+		$data['view_money'] = $this->main_md->get_money_view();
+		$data['title'] = $id_category['title'];
+		$data['description'] = $id_category['description'];
+		$data['keywords'] = $data['settings'][8]['value'];
+		$data['category_name'] = $id_category['name'];
+		$data['input_category'] = $input_category;
+		$data['money'] = $this->main_md->get_money_default();
+		
+		//Собираем список товаров категории
+		$product = $this->category_md->get_list_item( $id_category['id_category'] );
+
+		//Собираем список опций для категории товаров
+		$options = $this->category_md->get_list_option( $id_category['id_category'] );
+		
+		$data['options'][] = array();
+		$data['options_item'][] = array();
+		$i = 0;
+		$t = 0;
+		foreach ( $options as $item )
+		{
+			$res = $this->category_md->get_name_option( $item['id_option'] );
+			$data['options'][$i] = array (
+				'name' => $res['name_option'],
+				'id_option' => $item['id_option']
+			);
+			
+			foreach( $product as $value_id )
+			{
+				$val = $this->category_md->get_val_option( $item['id_option'], $value_id['id_product'] );
+				
+				$data['options_item'][$i][$t] = $val['text_option'];
+				$t++;
+			}
+			
+			$t = 0;
+			$i++;
+		}
+		
+		$this->form_validation->set_rules('cart_id', 'cart_id', 'required');
+		
+		if( $this->form_validation->run() == TRUE )
+		{
+			$cart = array(
+				'id' => $this->input->post('cart_id'),
+				'price' => $this->input->post('cart_price'),
+				'qty' => 1,
+				'name' => $this->input->post('cart_name'),
+				'options' => array('image' => $this->input->post('cart_img'))
+				);
+			
+			$this->cart->insert($cart);
+		}
+		
+		if( $this->cart->total_items() > 0 )
+		{
+			$data['cart_count'] = $this->cart->total_items();
+			$data['cart_price'] = $this->cart->total();
+		}
+		else
+		{
+			$data['cart_count'] = 0;
+		}
+		
+		//Узнаем ID текущей категории
+		$id_cat = $id_category['id_category'];
+		
+		while( $id_category['id_category'] != 0)
+			{
+				$parent = $this->category_md->get_parent_category($id_category['id_category']);
+
+				$data['navigation_name'][] = $parent['name'];
+				$data['navigation_rewrite'][] = $parent['rewrite'];
+				$id_category['id_category'] = $parent['sub_category'];
+			}
+		$data['count_navi'] = count($data['navigation_name']);
+		
+		$data['category_sidebar'] = $this->category_md->get_category($id_cat);
+		
+		$this->load->view('main/header', $data);
+		$this->load->view('main/menu', $data);
+		$this->load->view('main/category', $data);
+		$this->load->view('main/footer');
+	}
+	
+	function filter()
+	{
+		echo 'a';		
+
+		$input_data = $this->input->post('chek');
+		
+		$settings = $this->admin_md->get_settings();
+		
+		$id_category = $this->category_md->get_id_category($input_data[0]);
+		
+		$products = $this->category_md->get_products($id_category['id_category']);
+		
+		$default_money = $this->product_md->get_default_money();
+
+		$view_money = $this->main_md->get_money_view();
+		
+		if( count($input_data) > 1 )
+		{
+			//print_r($input_data);
+			//echo '<hr>';
+			$arr = array();
+			foreach( $input_data as $key => $item )
+			{
+				if( $key != 0 )
+				{
+					$result = explode('_', $item);
+					$list = $this->category_md->get_products_with_options( $id_category['id_category'], $result[0], $result[1] );
+					$arr[] = $list;
+				}
+			}
+			
+			$new_array = array();
+
+			echo '<h1>'.$id_category['name'].'</h1>';
+			foreach( $arr as $arr2 )
+			{
+				foreach( $arr2 as $arr3 )
+				{
+					if( !in_array($arr3['id_product'], $new_array) )
+					{
+						
+						$image = $this->category_md->get_boss_image( $arr3['id_product'] );
+						//print_r($arr3);
+						//echo '<hr>';
+
+						echo form_open();
+						echo '<div class="list_item_category">';
+						echo '<div style="width: '.$settings[2]['width'].'px; float: left; text-align: center;">';
+						echo '<img width="'.$settings[2]['width'].'" src="'.base_url('images/upload/'.$image['name']).'" alt="Товар" title="Товар">';
+						echo '</div>';
+						echo '<div class="item_description">';
+						/*echo '<a href="'.base_url('products/get/'.$arr3['rewrite'].'/').'" class="item_link">'.$arr3['name'].'</a>';
+						echo '<p>'.$arr3['text'].'</p>';
+						echo '<input type="hidden" value="'.$arr3['rewrite'].'" name="cart_name" />';
+						echo '<input type="hidden" value="'.$arr3['price'].'" name="cart_price" />';
+						echo '<input type="hidden" value="'.$arr3['id_product'].'" name="cart_id" />';
+						echo '<input type="hidden" value="'.$image['name'].'" name="cart_img" />';
+						echo '<div class="box_price">';
+						echo '<span class="price">'.$arr3['price']*$view_money['exchange_money'].' '.$view_money['key_money'].'</span>';
+
+									if( $default_money['id_money'] != $view_money['id_money'] ):
+									{
+										echo '<span class="default_price">'.$arr3['price'].' '.$default_money['key_money'].'</span>';
+									}*/
+								
+						echo '<input type="submit" class="add_cart" value="Купить">';
+						echo '</div>';
+						echo '</div>';
+						echo '</div>';
+						echo '<div style="clear: both;"></div>';
+						echo '</form>';
+						array_push($new_array, $arr3['id_product']);
+					}
+				}
+			}
+		}
+		else
+		{
+			if( count( $products ) != 0 )
+			{
+				echo '<h1>'.$id_category['name'].'</h1>';
+				foreach( $products as $item )
+				{
+					$image = $this->category_md->get_boss_image( $item['id_product'] );
+					echo form_open();
+						echo '<div class="list_item_category">';
+						echo '<div style="width: '.$settings[2]['width'].'px; float: left; text-align: center;">';
+						echo '<img width="'.$settings[2]['width'].'" src="'.base_url('images/upload/'.$image['name']).'" alt="Товар" title="Товар">';
+						echo '</div>';
+						echo '<div class="item_description">';
+						/*echo '<a href="'.base_url('products/get/'.$arr3['rewrite'].'/').'" class="item_link">'.$arr3['name'].'</a>';
+						echo '<p>'.$arr3['text'].'</p>';
+						echo '<input type="hidden" value="'.$arr3['rewrite'].'" name="cart_name" />';
+						echo '<input type="hidden" value="'.$arr3['price'].'" name="cart_price" />';
+						echo '<input type="hidden" value="'.$arr3['id_product'].'" name="cart_id" />';
+						echo '<input type="hidden" value="'.$image['name'].'" name="cart_img" />';
+						echo '<div class="box_price">';
+						echo '<span class="price">'.$arr3['price']*$view_money['exchange_money'].' '.$view_money['key_money'].'</span>';
+
+									if( $default_money['id_money'] != $view_money['id_money'] ):
+									{
+										echo '<span class="default_price">'.$arr3['price'].' '.$default_money['key_money'].'</span>';
+									}*/
+								
+						echo '<input type="submit" class="add_cart" value="Купить">';
+						echo '</div>';
+						echo '</div>';
+						echo '</div>';
+						echo '<div style="clear: both;"></div>';
+						echo '</form>';
+				}
+			}
+		}
+		
+	}
+}

@@ -1,0 +1,550 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html, body {
+	margin: 0;
+	padding: 0;
+}
+
+a:hover {
+	color: #A52A2A;
+}
+
+#cart {
+	width: 220px;
+	height: 60px;
+	background: #f9ff7a;
+	border-radius: 0 0 10px 10px;
+	border: 10px solid #eef200;
+	position: absolute;
+	margin: -10px 0 0 75%;
+	z-index: 8;
+}
+
+#cart .count_cart {
+	font-family: Arial;
+	font-size: 11px;
+	font-weight: bold;
+	color: #0a4f01;
+	margin: 7px 10px 5px 10px;
+	float: left;
+	text-decoration: none;
+}
+
+#cart .price_cart {
+	font-family: Arial;
+	font-size: 23px;
+	font-weight: bold;
+	color: #010752;
+	margin: 0 10px;
+	text-decoration: none;
+}
+
+#cart .cart_img {
+	width: 41px;
+	height: 38px;
+	margin: 10px 10px;
+	float: left;
+}
+
+#header_menu {
+	background: #00a7d3;
+	height: 30px;
+	padding-left: 10%;
+	box-shadow: 0 1px 3px #000;
+	position: relative;
+	z-index: 7;
+}
+
+#header_menu li {
+	list-style-type: none;
+	margin: 5px 5px;
+	float: left;
+}
+
+#header_menu a {
+	font-family: Verdana;
+	font-size: 13px;
+	color: #FFF;
+}
+
+#header_info {
+	min-width: 100%;
+	background: url(../../images/theme1/back_header.png) repeat-x;
+	height: 110px;
+	box-shadow: 0 1px 3px #000;
+	position: relative;
+	z-index: 6;
+}
+
+#header_info .header_logo {
+	width: 146px;
+	height: 61px;
+	margin: 20px 0 0 20px;
+	float: left;
+}
+
+#header_info .header_search {
+	width: 400px;
+	height: 30px;
+	margin: 30px 0 0 5%;
+	border: none;
+	border-radius: 5px;
+	float: left;
+}
+
+#header p {
+	font-family: Arial;
+	font-size: 15px;
+	color: #FFF;
+	margin: 0 0 0 20%;
+}
+
+/*------------------------------------------------------------------------------*/
+
+#category {
+	position: relative;
+	z-index: 5;
+}
+
+#category li {
+	float: left;
+	margin-left: 5px;
+	background: #296007;
+	padding: 5px 5px 5px 5px;
+	border-radius: 0 0 10px 10px;
+	list-style-type: none;
+}
+
+#category li a {
+	font-family: Arial;
+	font-size: 18px;
+	color: #FFF;
+	font-weight: normal;
+	text-decoration: none;
+}
+
+.sub_category {
+	margin: 30px 10px 0 -5px;
+	max-width: 80%;
+	display: none;
+	background: #c8df2a;
+	border-radius: 10px;
+	position: absolute;
+	padding: 10px;
+}
+
+.submenu_category {
+	width: 200px;
+	float: left;
+}
+
+#category .menu_h2 {
+	font-family: Arial;
+	font-size: 15px;
+	font-weight: bold;
+	color: #075e9b;
+	text-decoration: underline;
+}
+
+#category p {
+	margin: 2px 0 0 20px;
+}
+
+#category .sub_ul {
+	font-family: Arial;
+	font-size: 12px;
+	color: #075e9b;
+	text-decoration: underline;
+}
+
+/*----------------------------------------------------------------------------------------*/
+
+#slider_gallery {
+	position: relative;
+	z-index: 4;
+}
+
+#slider_gallery .img_gallery {
+	max-width: 100%;
+	margin-top: -50px;
+}
+
+#slider_navi {
+	margin: -20px 0 0 0;
+	width: 100%;
+	height: 20px;
+	position: relative;
+	z-index: 9;
+}
+
+#slider_navi .navi_img {
+	margin: 1px 0 0 10px;
+	float: left;
+}
+
+/*----------------------------------------------------------------------------------------*/
+
+#sidebar {
+	width: 260px;
+	float: left;
+	margin: 20px 0 0 20px;
+}
+
+#sidebar ul li {
+	margin: 0 0 5px 10px;
+	list-style-type: none;
+}
+
+#sidebar ul li ul li {
+	margin: 0 0 0 20px;
+	list-style-type: none;
+}
+
+#sidebar ul li a{
+	font-family: Arial;
+	font-size: 14px;
+	color: #003f74;
+}
+
+#sidebar ul li ul li a{
+	font-family: Arial;
+	font-size: 11px;
+	color: #003f74;
+}
+
+/*----------------------------------------------------------------------------------------*/
+
+.close_windows {
+	background: url(http://magazin/images/theme1/delete.png);
+	width: 16px;
+	height: 16px;
+	cursor: pointer;
+	margin: 0 10px 0 auto;
+}
+
+#content {
+	margin: 10px 0;
+}
+
+#content h1 {
+	font-family: Arial;
+	font-size: 25px;
+	margin: 10px 0 10px 10px;
+	color: #446f2f;
+}
+
+#content h2 {
+	font-family: Arial;
+	font-size: 20px;
+	color: #136295;
+}
+
+#content h3 {
+	font-family: Arial;
+	font-size: 20px;
+	font-weight: normal;
+	margin: 0 0 0 50px;
+	color: #333;
+}
+
+#content h4 {
+	font-family: Arial;
+	font-size: 18px;
+	font-weight: normal;
+	margin: 0 0 0 10px;
+	color: #333;
+}
+
+#filter_category {
+	margin: 10px 0 0 15px;
+}
+
+#filter_category li{
+	font-family: Arial;
+	font-size: 13px;
+	font-weight: normal;
+	color: #333;
+}
+
+#filter_category li ul li{
+	font-family: Arial;
+	font-size: 12px;
+	font-weight: normal;
+	color: #333;
+}
+
+#content .category_check {
+	margin: 1px 5px 0 0;
+}
+
+#content .h2_item {
+	margin: 20px 0 0 0;
+	padding-left: 20px;
+	height: 50px;
+	background: #008c00;
+	float: left;
+}
+
+#content .arrow {
+	margin: 20px 0 0 0;
+	height: 50px;
+	width: 25px;
+	float: left;
+	background: url(../../images/theme1/arrow.png) no-repeat;
+}
+
+#content .margin {
+	margin: 10px auto;
+	width: 86%;
+	clear: both;
+}
+
+#content .item {
+	margin: 10px 10px;
+	float: left;
+	width: 200px;
+	text-align: left;
+	min-height: 250px;
+}
+
+#content .item_img {
+	max-height: 150px;
+}
+
+#content .item_link, #content .category_link {
+	display: block;
+	font-family: Arial;
+	color: #003f74;
+	font-weight: bold;
+	text-decoration: underline;
+	font-size: 16px;
+}
+
+#content .category_link {
+	font-size: 12px;
+	font-weight: normal;
+}
+
+#content .category_link {
+	margin: 0;
+}
+
+#list-item-category {
+	width: 700px;
+	margin: 20px 0;
+	float: left;
+}
+
+#list-item-category  .item_category {
+	width: 200px;
+	text-align: center;
+	float: left;
+	margin: 0 10px;
+}
+
+ #list-item-category .item_description {
+	float: left;
+	margin: 0 0 20px 0;
+}
+
+#list-item-category .img_category {
+	float: none;
+	max-width: 100%;
+}
+
+#list-item-category .item_category img {
+	margin: 0;
+}
+
+#list-item-category .item_description {
+	margin-left: 10px;
+	float: left;
+	width: 550px;
+}
+
+#list-item-category .p {
+	font-family: Arial;
+	color: #333;
+	font-size: 13px;
+}
+
+#image_product {
+	float: left;
+}
+
+#product {
+	width: 450px;
+	float: left;
+}
+
+#product p {
+	margin: 10px 0 0 20px;
+	font-family: Arial;
+	color: #333;
+	font-weight: normal;
+	font-size: 12px;
+}
+
+#image_product .boss {
+	clear: both;
+}
+
+#image_product .item_img {
+	float: left;
+	margin: 5px 5px 0 0;
+}
+
+#show_options, #full_description {
+	margin: 10px 0 0 0;
+}
+
+#show_options table tr td{
+	padding: 2px 20px;
+	font-family: Arial;
+	color: #333;
+	font-weight: normal;
+	font-size: 12px;
+}
+
+#content .price {
+	font-family: Arial;
+	color: #370d83;
+	font-weight: normal;
+	font-size: 22px;
+}
+
+#content .item_price {
+	margin-left: 20px;
+	font-family: Arial;
+	color: #025141;
+	font-weight: bold;
+	font-size: 28px;
+}
+
+#content .add_cart{
+	height: 25px;
+	padding: 1px 10px;
+	margin: 10px 0 0 20px;
+	font-family: Arial;
+	color: #FFF;
+	font-weight: normal;
+	font-size: 15px;
+	border: none;
+	border-radius: 5px;
+	background: #438b20;
+}
+
+#content .home {
+	text-decoration: none;
+	margin: 0 0 0 10px;
+	float: left;
+}
+
+#content .navi {
+	width: 20px;
+	height: 10px;
+	margin: 4px 0 0 0;
+	float: left;
+}
+
+#content .navi_text {
+	font-family: Arial;
+	color: #333;
+	font-weight: normal;
+	font-size: 11px;
+	float: left;
+}
+
+/*----------------------------------------------------------------------------------------*/
+
+#footer {
+	border-top: 2px solid #0f6301;
+	height: 120px;
+}
+
+#footer p {
+	margin: 10px;
+	font-family: Arial;
+	font-size: 12px;
+	color: #131313;
+}
+
+/*------------------------------------------- ќформление покупки ---------------------------------*/
+
+#person_buy {
+	float: left;
+	margin-right: 15px;
+}
+
+#person_buy table {
+	font-size: 12px;
+}
+
+#person_buy .info_td {
+	width: 170px;
+}
+
+.buy_text {
+	width: 220px;
+	height: 20px;
+	border: 1px solid #eee;
+}
+
+#cart_center {
+	width: 80%;
+	margin: 0 auto;
+}
+
+#cart_center p {
+	font-size: 12px;
+}
+
+/*-------------------------------Cart-----------------------------*/
+
+#show_cart {
+	width: 80%;
+	display: none;
+	background: #FFF;
+	position: absolute;
+	top: 50px;
+	left: 10%;
+	z-index: 10;
+	border: 10px solid #1852aa;
+	border-radius: 20px;
+	padding: 5px;
+}
+
+.cart_table {
+	border: none;
+	width: 90%;
+	margin: 0 5%;
+}
+
+.buy_table {
+	border: none;
+	width: 40%;
+	margin: 0;
+	font-size: 12px;
+}
+
+.cart_table td, .buy_table td{
+	padding: 10px;
+	border-bottom: 1px solid #EEE;
+}
+
+.head {
+	background: #74b1e1;
+}
+
+.foot {
+	background: #77c16f;
+}
+
+.text_cart {
+	width: 50px;
+	height: 20px;
+	border: 1px solid #EEE;
+}
