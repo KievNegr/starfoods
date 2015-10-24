@@ -25,88 +25,90 @@
 			$("#show-cart").fadeIn();
 			$("#fade").fadeIn();
 		});
-	});
 
-	$('html').on('change', '.cart-qty', function()
-	{
-		new_qty = $(this).val();
-		if( new_qty < 1 )
+		$('html').on('change', '.cart-qty', function()
 		{
-			alert('не гони!');
-			$(this).val('1');
-		}
-		else
-		{
-			rowid = $(this).attr('id');
-			$.post('<?php echo base_url("my_cart/qty_change");?>', {qty: new_qty, rowid: rowid}, ok);
-		}
-	});
+			new_qty = $(this).val();
+			if( new_qty < 1 )
+			{
+				alert('не гони!');
+				$(this).val('1');
+			}
+			else
+			{
+				rowid = $(this).attr('id');
+				$.post('<?php echo base_url("my_cart/qty_change");?>', {qty: new_qty, rowid: rowid}, ok);
+			}
+		});
 
-	$('html').on('click', '.item-down', function()
-	{
-		qty = $('#' + $(this).attr('down-rowid')).val();
-		new_qty = parseInt(qty) - 1;
-		if( new_qty < 1 )
+		$('html').on('click', '.item-down', function()
 		{
-			alert('не гони!');
-			$(this).val('1');
-		}
-		else
-		{
-			rowid = $(this).attr('down-rowid');
-			$.post('<?php echo base_url("my_cart/qty_change");?>', {qty: new_qty, rowid: rowid}, ok);
-		}
-	});
+			qty = $('#' + $(this).attr('down-rowid')).val();
+			new_qty = parseInt(qty) - 1;
+			if( new_qty < 1 )
+			{
+				alert('не гони!');
+				$(this).val('1');
+			}
+			else
+			{
+				rowid = $(this).attr('down-rowid');
+				$.post('<?php echo base_url("my_cart/qty_change");?>', {qty: new_qty, rowid: rowid}, ok);
+				$('.load-cart').html('Корзина (' + new_qty + ')');
+			}
+		});
 
-	$('html').on('click', '.item-up', function()
-	{
-		qty = $('#' + $(this).attr('up-rowid')).val();
-		new_qty = parseInt(qty) + 1;
-		if( new_qty < 1 )
+		$('html').on('click', '.item-up', function()
 		{
-			alert('не гони!');
-			$(this).val('1');
-		}
-		else
+			qty = $('#' + $(this).attr('up-rowid')).val();
+			new_qty = parseInt(qty) + 1;
+			if( new_qty < 1 )
+			{
+				alert('не гони!');
+				$(this).val('1');
+			}
+			else
+			{
+				rowid = $(this).attr('up-rowid');
+				$.post('<?php echo base_url("my_cart/qty_change");?>', {qty: new_qty, rowid: rowid}, ok);
+				$('.load-cart').html('Корзина (' + new_qty + ')');
+			}
+		});
+		
+		$('html').on('click', '.delete', function()
 		{
-			rowid = $(this).attr('up-rowid');
-			$.post('<?php echo base_url("my_cart/qty_change");?>', {qty: new_qty, rowid: rowid}, ok);
-		}
-	});
-	
-	$('html').on('click', '.delete', function()
-	{
-		rowid = $(this).attr('del-rowid');
-		new_qty = '0';
-		$.post('<?php echo base_url("my_cart/qty_change");?>', {qty: new_qty, rowid: rowid}, reload);
-	});
-	
-	function ok(data)
-	{
-		$("#show-cart").load('<?php echo base_url("my_cart");?>');
-	}
-	
-	function reload(data)
-	{
-		if( data == 0 )
-		{
-			location.reload(true);
-		}
-		else
+			rowid = $(this).attr('del-rowid');
+			new_qty = '0';
+			$.post('<?php echo base_url("my_cart/qty_change");?>', {qty: new_qty, rowid: rowid}, reload);
+		});
+		
+		function ok(data)
 		{
 			$("#show-cart").load('<?php echo base_url("my_cart");?>');
 		}
-	}
+		
+		function reload(data)
+		{
+			if( data == 0 )
+			{
+				location.reload(true);
+			}
+			else
+			{
+				$("#show-cart").load('<?php echo base_url("my_cart");?>');
+			}
+		}
 
-	$('html').on('click', '.close-cart', function()
-	{
-		$("#show-cart").fadeOut();
-		$("#fade").fadeOut();
-	});
-	
-	$('#buy').click(function()
-	{
-		$("#show-cart").load('<?php echo base_url("my_cart/buy");?>');
+		$('html').on('click', '.close-cart', function()
+		{
+			$("#show-cart").fadeOut();
+			$("#fade").fadeOut();
+		});
+		
+		$('html').on('click', '.buy', function()
+		{
+			$("#show-cart").load('<?php echo base_url("my_cart/buy");?>');
+		});
 	});
 	
 </script>

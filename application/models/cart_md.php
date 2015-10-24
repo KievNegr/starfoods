@@ -67,10 +67,10 @@
 		}
 		
 		//Функция вывода названия товара в читабельном виде
-		function get_name_item($name)
+		function get_name_item($id)
 		{
 			//Выполняем запрос в БД с REWRITE товара
-			$query = $this->db->get_where('products', array('rewrite' => $name));
+			$query = $this->db->get_where('products', array('id_product' => $id));
 			
 			//Присваиваем результат в массив
 			$name = $query->row_array();

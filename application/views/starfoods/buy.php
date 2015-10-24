@@ -11,6 +11,7 @@
 		
 		function keyok(data)
 		{
+			alert(data);
 			price = (parseInt($("#total").val()) * parseInt(data)) / 100 + parseInt($("#total").val());
 			$("#total_sum").text(price);
 			total = price + delivery;
@@ -20,10 +21,10 @@
 		$("#buy_shipping").change(function()
 		{
 			key = $(this).val();
-			$.post('my_cart/delivery_change', {key: key}, deliv_ok);
+			$.post('my_cart/delivery_change', {key: key}, delivOk);
 		});
 		
-		function deliv_ok(data)
+		function delivOk(data)
 		{
 			delivery = parseInt(data);
 			$("#deliv_sum").text(data);
@@ -115,52 +116,40 @@
 		function ok(data)
 		{
 			$("#show_cart").load("<?=base_url("my_cart/succes");?>");
+			alert(data);
 		}
 	});
 </script>
 
-<div id="cart_center">
+<div id="cart-center">
+	<p class="h5 up">Последний шаг</p>
 	<h1>Оформление заказа</h1>
-	<fieldset>
+	<div class="left">
 		<legend>Контактные данные</legend>
-		<p>ФИО*</p>
-		<input type="text" id="name_buy" class="buy_text" />
-		<p>Телефон*:</p>
-		<td><input type="text" id="phone_buy" class="buy_text" />
-		<p>E-mail:</p>
-		<input type="text" id="mail_buy" class="buy_text" />
-		<p>Факс:</p>
-		<input type="text" id="fax_buy" class="buy_text" />
-   </fieldset>
-   
-   	<fieldset id="adress">
+		<input type="text" id="name_buy" class="buy_text" placeholder="Имя*" />
+		<input type="text" id="phone_buy" class="buy_text" placeholder="Телефон*" />
+		<input type="text" id="mail_buy" class="buy_text" placeholder="E-mail" />
+		<input type="text" id="fax_buy" class="buy_text" placeholder="Факс" />
+
 		<legend>Адрес доставки</legend>
-		<p>Город</p>
 		<select id="buy_city">
 			<?php foreach( $city as $name_city ): ?>
 				<option value="<?=$name_city['id_city'];?>"><?=$name_city['name_city'];?></option>
 			<?php endforeach; ?>
 		</select>
-		<p>Улица*</p>
-		<input type="text" id="buy_street" class="buy_text" />
-		<p>Дом*</p>
-		<input type="text" id="buy_build" class="buy_text" />
-		<p>Квартира(офис)*</p>
-		<input type="text" id="buy_appart" class="buy_text" />
-   </fieldset>
+		<input type="text" id="buy_street" class="buy_text" placeholder="Улица*" />
+		<input type="text" id="buy_build" class="buy_text" placeholder="Дом*" />
+		<input type="text" id="buy_appart" class="buy_text" placeholder="Квартира(офис)" />
+   </div>
    
-   <div style="clear: both;"></div>
-   
-    <fieldset style="width: 538px; margin-right: 5px;">
+  <div class="right">
 		<legend>Доставка и оплата</legend>
-		<p>Способ доставки</p>
 		<div class="show_item_buy">
 			<select id="buy_shipping">
 				<?php foreach( $delivery as $item ): ?>
 					<option value="<?=$item['id_shipping'];?>"><?=$item['name_shipping'];?></option>
 				<?php endforeach; ?>
 			</select>
-			<p>Вариант оплаты</p>
 			<select id="buy_pay">
 				<?php foreach( $pay as $item ): ?>
 					<option value="<?=$item['id_pay'];?>"><?=$item['name_pay'];?></option>
@@ -169,11 +158,11 @@
 		</div>
 		<div class="show_item_price">
 			<input type="hidden" value="<?=$total;?>" id="total" />
-			<p style="color: #01085d; margin-top: -5px;">Товаров на сумму: <span id="total_sum"><?=$total * $view_money['exchange_money'];?></span> <?=$view_money['key_money'];?></p>
-			<p style="color: #01085d;">Доставка: <span id="deliv_sum">0</span> <?=$view_money['key_money'];?></p>
-			<p style="color: #01085d;">Сумма к оплате: <span id="total_sum_width_del"><?=$total * $view_money['exchange_money'];?></span> <?=$view_money['key_money'];?></p>
+			<p class="result">Товаров на сумму: <span id="total_sum"><?=$total * $view_money['exchange_money'];?></span> <?=$view_money['key_money'];?></p>
+			<p class="result">Доставка: <span id="deliv_sum">0</span> <?=$view_money['key_money'];?></p>
+			<p class="result">Сумма к оплате: <span id="total_sum_width_del"><?=$total * $view_money['exchange_money'];?></span> <?=$view_money['key_money'];?></p>
 		</div>
-   </fieldset>
-   <div id="set_order">Оформить заказ</div>
-
+		<div id="set_order">Подтвердить заказ</div>
+   </div>
+   <div style="clear:both;"></div>
 </div>

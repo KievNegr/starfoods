@@ -44,6 +44,9 @@ class My_cart extends CI_Controller {
 	//Функция оформления заказа
 	public function buy()
 	{
+		$info = $this->admin_md->get_settings();
+		$themePath = $info[9]['value'];
+
 		//Заносим все товары корзины в переменную
 		$data['contents'] = $this->cart->contents();
 		
@@ -66,15 +69,16 @@ class My_cart extends CI_Controller {
 		$data['city'] = $this->admin_md->get_city();
 		
 		//Загружаем шаблон
-		$this->load->view('main/buy', $data);
+		$this->load->view($themePath . '/buy', $data);
 	}
 	
 	public function reg()
 	{
-		$key_order = $this->cart_md->set_order_user();
-		$this->cart_md->set_order_product($key_order);
-		$this->cart_md->set_order($key_order);
-		$this->cart->destroy();
+		//$key_order = $this->cart_md->set_order_user();
+		//$this->cart_md->set_order_product($key_order);
+		//$this->cart_md->set_order($key_order);
+		//$this->cart->destroy();
+		echo 'a';
 	}
 	
 	public function succes()
