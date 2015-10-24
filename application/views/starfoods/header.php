@@ -83,4 +83,7 @@
 					endif;
 				?>
 			</ul>
-		</div>
+		</div><!--/Header-->
+		<div class="cart-header-link">
+			<a href="#" class="load-cart">Корзина (<?php echo $cart_count; ?>)</a>
+		</div><!--/cart-header-link-->
