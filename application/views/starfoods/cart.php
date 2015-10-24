@@ -2,7 +2,6 @@
 <h1>Корзина</h1>
 <div class="close-cart">Закрыть</div>
 <?php 
-	print_r($contents);
 	foreach($contents as $item): 
 	$item = array_reverse($item);
 ?>

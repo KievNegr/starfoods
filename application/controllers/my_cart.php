@@ -74,16 +74,18 @@ class My_cart extends CI_Controller {
 	
 	public function reg()
 	{
-		//$key_order = $this->cart_md->set_order_user();
-		//$this->cart_md->set_order_product($key_order);
-		//$this->cart_md->set_order($key_order);
-		//$this->cart->destroy();
-		echo 'a';
+		$key_order = $this->cart_md->set_order_user();
+		$this->cart_md->set_order_product($key_order);
+		$this->cart_md->set_order($key_order);
+		$this->cart->destroy();
 	}
 	
 	public function succes()
 	{
-		$this->load->view('main/reg');
+		$info = $this->admin_md->get_settings();
+		$themePath = $info[9]['value'];
+
+		$this->load->view($themePath . '/reg');
 	}
 	
 	public function pay_change()

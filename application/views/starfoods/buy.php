@@ -6,12 +6,11 @@
 		$("#buy_pay").change(function()
 		{
 			key = $(this).val();
-			$.post('my_cart/pay_change', {key: key}, keyok);
+			$.post('http://starfoods/my_cart/pay_change', {key: key}, keyok);
 		});
 		
 		function keyok(data)
 		{
-			alert(data);
 			price = (parseInt($("#total").val()) * parseInt(data)) / 100 + parseInt($("#total").val());
 			$("#total_sum").text(price);
 			total = price + delivery;
@@ -21,7 +20,7 @@
 		$("#buy_shipping").change(function()
 		{
 			key = $(this).val();
-			$.post('my_cart/delivery_change', {key: key}, delivOk);
+			$.post('http://starfoods/my_cart/delivery_change', {key: key}, delivOk);
 		});
 		
 		function delivOk(data)
@@ -48,57 +47,47 @@
 			
 			if( name.length == 0 )
 			{
-				$('#name_buy').css('border-color','#FF0000');
+				$('#name_buy').css('box-shadow',' inset 0 0 5px #FF0000');
 				error = 1;
 			}
 			else
 			{
-				$('#name_buy').css('border-color','#028b15');
+				$('#name_buy').css('box-shadow',' inset 0 0 5px rgba(0, 0, 0, 0.15)');
 			}
 			
 			if( phone.length == 0 )
 			{
-				$('#phone_buy').css('border-color','#FF0000');
+				$('#phone_buy').css('box-shadow',' inset 0 0 5px #FF0000');
 				error = 1;
 			}
 			else
 			{
-				$('#phone_buy').css('border-color','#028b15');
+				$('#phone_buy').css('box-shadow',' inset 0 0 5px rgba(0, 0, 0, 0.15)');
 			}
 			
 			if( street.length == 0 )
 			{
-				$('#buy_street').css('border-color','#FF0000');
+				$('#buy_street').css('box-shadow',' inset 0 0 5px #FF0000');
 				error = 1;
 			}
 			else
 			{
-				$('#buy_street').css('border-color','#028b15');
+				$('#buy_street').css('box-shadow',' inset 0 0 5px rgba(0, 0, 0, 0.15)');
 			}
 			
 			if( build.length == 0 )
 			{
-				$('#buy_build').css('border-color','#FF0000');
+				$('#buy_build').css('box-shadow',' inset 0 0 5px #FF0000');
 				error = 1;
 			}
 			else
 			{
-				$('#buy_build').css('border-color','#028b15');
-			}
-			
-			if( office.length == 0 )
-			{
-				$('#buy_appart').css('border-color','#FF0000');
-				error = 1;
-			}
-			else
-			{
-				$('#buy_appart').css('border-color','#028b15');
+				$('#buy_build').css('box-shadow',' inset 0 0 5px rgba(0, 0, 0, 0.15)');
 			}
 			
 			if( error == 0 )
 			{
-				$.post('my_cart/reg', {
+				$.post('http://starfoods/my_cart/reg', {
 				name_buy:name, 
 				phone_buy:phone, 
 				mail_buy:mail, 
@@ -113,10 +102,9 @@
 			}
 		});
 		
-		function ok(data)
+		function ok()
 		{
-			$("#show_cart").load("<?=base_url("my_cart/succes");?>");
-			alert(data);
+			$("#show-cart").load('<?php echo base_url("my_cart/succes");?>');
 		}
 	});
 </script>
