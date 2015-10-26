@@ -20,12 +20,12 @@ $(document).ready(function()
 				$(".submit").prop("disabled", true);
 			}
 			
-			name_status = $(this).val();
+			nameStatus = $(this).val();
 
 			$.ajax({
 				type:'post',
 				url:'<?php echo base_url('admin/check_status/');?>',
-				data:{'name': name_status},
+				data:{'name': nameStatus},
 				success: function(data)
 				{
 					if( data == 1 )
@@ -40,6 +40,8 @@ $(document).ready(function()
 			});
 
 			check();
+
+			$('#preview').html(nameStatus);
 		});
 		
 		function check()
@@ -50,11 +52,12 @@ $(document).ready(function()
 			}
 		}
 		
-		$("#reset").click(function()
+		setInterval(preview, 1000);
+
+		function preview()
 		{
-			$("#mycolor").val('');
-			$("#mycolor").css('background','#FFF');
-		});
+			$('#preview').css({'background-color': $('#mycolor').val(), 'color': $('#text-color').val()});
+		}
 	});
 </script>
 <script type="text/javascript" src="<?php echo base_url('js/admin/iColorPicker.js');?>"></script>
@@ -74,10 +77,10 @@ $(document).ready(function()
 				<input type="text" name="name" id="name_status" value="<?php echo $status['name'];?>" class="text" />
 				<p>Цвет:</p>
 				<input type="text" name="color" style="background: <?php echo $status['color'];?>" value="<?php echo $status['color'];?>" class="iColorPicker text" id="mycolor" />
+				<p>Текст:</p>
+				<input type="text" name="textcolor" class="iColorPicker text" id="text-color" style="background-color: <?php echo $status['textcolor'];?>" value="<?php echo $status['textcolor'];?>" />
 				<br />
-				<a href="#" id="reset" title="Не использовать цвет" style="margin-left: 30px;"><img src="<?php echo base_url('images/admin/trash.png');?>" ></a>
-				<br />
-				<input type="hidden" name="status_id" value="<?php echo $status['id_status'];?>" />
+				<span style="margin: 15px 0 0 0; float: left; border-radius: 3px; padding: 4px 10px; background-color: <?php echo $status['color'];?>; color: <?php echo $status['textcolor'];?>" id="preview"><?php echo $status['name'];?></span>
 			</td>
 			<td class="td" valign="top">
 				<div id="errors"></div>

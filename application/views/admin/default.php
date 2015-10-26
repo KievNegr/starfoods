@@ -35,7 +35,7 @@
 			</td>
 			<td class="td">
 				<?php
-					echo '<span class="td_text" style="border-radius: 3px; padding: 4px 10px; background: '.$name_status['color'].'">'.$name_status['name'].'</span>';
+					echo '<span class="td_text" style="border-radius: 3px; padding: 4px 10px; background: '.$name_status['color'].'; color: '.$name_status['textcolor'].';">'.$name_status['name'].'</span>';
 				?>
 			</td>
 		</tr>

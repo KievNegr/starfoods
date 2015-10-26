@@ -661,13 +661,21 @@
 		{
 			//Проверка на правильность поля ЦВЕТ - наличие #
 			$color = $this->input->post('color');
+			$textcolor = $this->input->post('textcolor');
+
 			if( substr($color, 0, 1) != '#' )
 			{
 				$color = '#'.$color;
 			}
+			
+			if( substr($textcolor, 0, 1) != '#' )
+			{
+				$textcolor = '#'.$textcolor;
+			}
 			$data = array(
 				'name' => $this->input->post('name_status'),
 				'color' => $color,
+				'textcolor' => $textcolor,
 				'data' => date("Y-m-d H:i:s"),
 				'ip' => $_SERVER['REMOTE_ADDR'],
 				'login' => 'Admin'
@@ -684,9 +692,15 @@
 			{
 				$color = '#'.$color;
 			}
+			$textcolor = $this->input->post('textcolor');
+			if( substr($textcolor, 0, 1) != '#' )
+			{
+				$textcolor = '#'.$textcolor;
+			}
 			$data = array(
 				'name' => $this->input->post('name'),
 				'color' => $color,
+				'textcolor' => $textcolor,
 				'data' => date("Y-m-d H:i:s"),
 				'ip' => $_SERVER['REMOTE_ADDR'],
 				'login' => 'Admin'
