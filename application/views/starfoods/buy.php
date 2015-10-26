@@ -11,9 +11,8 @@
 		
 		function keyok(data)
 		{
-			price = (parseInt($("#total").val()) * parseInt(data)) / 100 + parseInt($("#total").val());
-			$("#total_sum").text(price);
-			total = price + delivery;
+			$("#total_sum").text(parseInt(data));
+			total = parseInt(data) + delivery;
 			$("#total_sum_width_del").text(total);
 		}
 		
@@ -112,6 +111,7 @@
 <div id="cart-center">
 	<p class="h5 up">Последний шаг</p>
 	<h1>Оформление заказа</h1>
+	<div class="close-cart">Закрыть</div>
 	<div class="left">
 		<legend>Контактные данные</legend>
 		<input type="text" id="name_buy" class="buy_text" placeholder="Имя*" />
@@ -153,4 +153,5 @@
 		<div id="set_order">Подтвердить заказ</div>
    </div>
    <div style="clear:both;"></div>
+   <div class="cart-back">‹ Предыдущий шаг</div>
 </div>

@@ -26,6 +26,11 @@
 			$("#fade").fadeIn();
 		});
 
+		$('html').on('click', '.cart-back', function()
+		{
+			$("#show-cart").load('<?php echo base_url('my_cart');?>');
+		});
+
 		$('html').on('change', '.cart-qty', function()
 		{
 			new_qty = $(this).val();

@@ -245,11 +245,11 @@ h5 {
 .cart-header-link {
     position: fixed;
     z-index: 7;
-    top: 100px;
+    top: 96px;
     right: 20px;
     background-color: #621D10;
     padding: 2px 10px 5px 10px;
-    border-radius: 0 0 5px 5px;
+    border-radius: 5px;
 }
 
 .cart-header-link a {
@@ -263,14 +263,6 @@ h5 {
 .cart-header-link a:hover {
     border: none;
     color: #A8CDF5;
-}
-
-#hello-field {
-	/*background: rgb(255, 255, 252);*/
-    background-image: url('../images/strip.png');
-    margin-top: 100px;
-    width: 100%;
-    padding: 80px 1% 60px 1%;
 }
 
 /*----------cart---------*/
@@ -298,6 +290,17 @@ h5 {
 #show-cart a:hover{
     color: #E50909;
     text-decoration: none;
+}
+
+.cart-back {
+    margin: 10px 0 0 0;
+    font-family: OpenSansCond;
+    color: #3566A7;
+    cursor: pointer;
+}
+
+.cart-back:hover {
+    color: #A73535;
 }
 
 .close-cart {
@@ -527,6 +530,14 @@ h5 {
 	position: absolute;
     z-index: 2;
     margin: -50px 0 0 50px;
+}
+
+#hello-field {
+    /*background: rgb(255, 255, 252);*/
+    background-image: url('../images/strip.png');
+    margin-top: 100px;
+    width: 100%;
+    padding: 80px 1% 60px 1%;
 }
 
 #shadow-1 {

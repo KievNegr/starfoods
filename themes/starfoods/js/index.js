@@ -51,7 +51,7 @@ $(document).ready(function()
 				top: '0'
 			}, 600);
 
-			$('#header').css({'background-image': 'url(http://starfoods.com.ua/img/header_background.jpg)', 'background-color':'none'});
+			$('#header').css({'background-image': 'url(http://starfoods.com.ua/themes/starfoods/images/header_background.jpg)', 'background-color':'none'});
 		}
 	});
 });

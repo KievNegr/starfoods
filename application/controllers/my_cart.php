@@ -90,8 +90,10 @@ class My_cart extends CI_Controller {
 	
 	public function pay_change()
 	{
+		$view_money = $this->main_md->get_money_view();
 		$percent = $this->cart_md->get_percent($this->input->post('key'));
-		echo $percent['markup'];
+
+		echo ($this->cart->total() * $view_money['exchange_money'] * $percent['markup'] / 100) + ($this->cart->total() * $view_money['exchange_money']);
 	}
 	
 	public function delivery_change()
