@@ -34,14 +34,14 @@
 		$('html').on('change', '.cart-qty', function()
 		{
 			new_qty = $(this).val();
+			rowid = $(this).attr('id');
 			if( new_qty < 1 )
 			{
-				alert('не гони!');
-				$(this).val('1');
+				new_qty = 0;
+				$.post('<?php echo base_url("my_cart/qty_change");?>', {qty: new_qty, rowid: rowid}, reload);
 			}
 			else
 			{
-				rowid = $(this).attr('id');
 				$.post('<?php echo base_url("my_cart/qty_change");?>', {qty: new_qty, rowid: rowid}, ok);
 			}
 		});
@@ -50,14 +50,14 @@
 		{
 			qty = $('#' + $(this).attr('down-rowid')).val();
 			new_qty = parseInt(qty) - 1;
+			rowid = $(this).attr('down-rowid');
 			if( new_qty < 1 )
 			{
-				alert('не гони!');
-				$(this).val('1');
+				new_qty = 0;
+				$.post('<?php echo base_url("my_cart/qty_change");?>', {qty: new_qty, rowid: rowid}, reload);
 			}
 			else
 			{
-				rowid = $(this).attr('down-rowid');
 				$.post('<?php echo base_url("my_cart/qty_change");?>', {qty: new_qty, rowid: rowid}, ok);
 				$('.load-cart').html('Корзина (' + new_qty + ')');
 			}

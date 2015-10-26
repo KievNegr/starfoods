@@ -33,7 +33,7 @@ class Pages extends CI_Controller {
 			'text' => $staticPage['text'],
 			'static' => $this->main_md->get_static(),
 			'parent_category' => $this->main_md->get_parent_category(),
-			'cart_count' => '',
+			'cartCount' => '',
 			'product' => $this->admin_md->get_added_product( 9 ), //Çàãðóæàåì N ïîñëåäíèõ äîáàâëåííûõ òîâàðîâ
 			'default_money' => $this->main_md->get_money_default(), //Çàãðóæàåì âàëþòó ïî óìîë÷àíèþ
 			'view_money' => $this->main_md->get_money_view() //Çàãðóæàåì âàëþòó îòîáðàæåíèÿ
@@ -56,12 +56,12 @@ class Pages extends CI_Controller {
 		
 		if( $this->cart->total_items() > 0 )
 		{
-			$data['cart_count'] = $this->cart->total_items();
+			$data['cartCount'] = $this->cart->total_items();
 			$data['cart_price'] = $this->cart->total();
 		}
 		else
 		{
-			$data['cart_count'] = 0;
+			$data['cartCount'] = 0;
 		}	
 		
 		$this->load->view($themePath . '/header', $data);

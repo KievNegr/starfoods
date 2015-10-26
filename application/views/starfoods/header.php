@@ -84,6 +84,12 @@
 				?>
 			</ul>
 		</div><!--/Header-->
+		<?php
+			if($cartCount > 0):
+		?>
 		<div class="cart-header-link">
-			<a href="#" class="load-cart">Корзина (<?php echo $cart_count; ?>)</a>
+			<a href="#" class="load-cart">Корзина (<?php echo $cartCount; ?>)</a>
 		</div><!--/cart-header-link-->
+		<?php
+			endif;
+		?>

@@ -63,6 +63,7 @@ $(document).ready(function()
 <script type="text/javascript" src="<?php echo base_url('js/admin/iColorPicker.js');?>"></script>
 <div id="content">
 	<?php echo form_open(); ?>
+	<input type="hidden" name="status_id" value="<?php echo $status['id_status']; ?>" />
 	<table class="table">
 		<tr class="tr_header">
 			<td colspan="2" class="td">

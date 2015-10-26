@@ -692,7 +692,9 @@
 			{
 				$color = '#'.$color;
 			}
+			
 			$textcolor = $this->input->post('textcolor');
+
 			if( substr($textcolor, 0, 1) != '#' )
 			{
 				$textcolor = '#'.$textcolor;

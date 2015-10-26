@@ -52,12 +52,12 @@ class Main extends CI_Controller {
 		
 		if( $this->cart->total_items() > 0 )
 		{
-			$data['cart_count'] = $this->cart->total_items();
+			$data['cartCount'] = $this->cart->total_items();
 			$data['cart_price'] = $this->cart->total();
 		}
 		else
 		{
-			$data['cart_count'] = 0;
+			$data['cartCount'] = 0;
 		}	
 		
 		$this->load->view($themePath . '/header', $data);

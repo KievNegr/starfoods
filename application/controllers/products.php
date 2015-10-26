@@ -77,7 +77,7 @@ class Products extends CI_Controller {
 		$data['rewrite'] = $input_product;
 
 		$data['all_money'] = $this->product_md->get_all_money();
-		$data['cart_count'] = '';
+		$data['cartCount'] = '';
 		$data['title'] = $data['products']['title'];
 		$data['description'] = $data['products']['description'];
 		$data['keywords'] = $data['settings'][8]['value'];
@@ -102,7 +102,7 @@ class Products extends CI_Controller {
 		
 		if( $this->cart->total_items() > 0 )
 		{
-			$data['cart_count'] = $this->cart->total_items();
+			$data['cartCount'] = $this->cart->total_items();
 			$data['cart_price'] = $this->cart->total();
 			foreach( $this->cart->contents() as $item )
 			{
@@ -114,7 +114,7 @@ class Products extends CI_Controller {
 		}
 		else
 		{
-			$data['cart_count'] = 0;
+			$data['cartCount'] = 0;
 		}
 
 		$this->load->view($themePath . '/header', $data);
