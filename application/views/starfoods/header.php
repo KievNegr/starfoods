@@ -11,6 +11,7 @@
 	<link rel="stylesheet" href="<?php echo base_url('themes/' . $themePath . '/css/ring.css');?>">
 	<script type="text/javascript" src="<?php echo base_url('themes/' . $themePath . '/js/jquery-1.11.3.min.js');?>"></script>
 	<script type="text/javascript" src="<?php echo base_url('themes/' . $themePath . '/js/animation.js');?>"></script>
+	<script type="text/javascript" src="<?php echo base_url('js/cart.js');?>"></script>
 	<?php
 		if(isset($index)):
 	?>

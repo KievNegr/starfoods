@@ -23,7 +23,24 @@
 			<!--<p class="weight">1000 гр.</p>-->
 		</a>
 		<div class="buy-form">
-			<input type="button" value="Купить" />
+			<form action="<?php echo base_url();?>" method="post" accept-charset="utf-8">	
+			<?php 
+				if( $item['buy'] == TRUE ):
+			?>
+				<input type="submit" value="Купить" />
+			<?php
+			else:
+			?>
+				<input type="button" class="in_cart" value="Уже в корзине" disabled>
+			<?php
+				endif;
+			?>	
+
+			<input type="hidden" value="<?php echo $item['id_product']; ?>" name="cart_id" />
+			<input type="hidden" value="<?php echo $item['price']; ?>" name="cart_price" />
+			<input type="hidden" value="<?php echo $item['rewrite']; ?>" name="cart_name" />
+			<input type="hidden" value="<?php echo $item['img']; ?>" name="cart_img" />
+			</form>
 			<p class="price"><?php echo $item['price']*$view_money['exchange_money'];?> <?=$view_money['key_money'];?></p>
 		</div>
 	</div>

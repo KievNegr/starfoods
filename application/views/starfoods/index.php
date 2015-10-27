@@ -41,23 +41,21 @@
 				</a>
 				<div class="buy-form">
 					<?php 
-						echo form_open(); 
 						if( $item['buy'] == TRUE ):
 					?>
-						<input type="submit" value="Купить" />
+						<input type="button" class="get-buy" value="Купить" id="<?php echo $item['id_product']; ?>" />
 					<?php
 					else:
 					?>
-						<input type="button" class="in_cart" value="Уже в корзине" disabled>
+						<input type="button" class="purchased" value="Уже в корзине" disabled>
 					<?php
 						endif;
 					?>	
 
-					<input type="hidden" value="<?php echo $item['id_product']; ?>" name="cart_id" />
-					<input type="hidden" value="<?php echo $item['price']; ?>" name="cart_price" />
-					<input type="hidden" value="<?php echo $item['rewrite']; ?>" name="cart_name" />
-					<input type="hidden" value="<?php echo $item['img']; ?>" name="cart_img" />
-					</form>
+					<input type="hidden" value="<?php echo $item['id_product']; ?>" id="cart_id_<?php echo $item['id_product']; ?>" />
+					<input type="hidden" value="<?php echo $item['price']; ?>" id="cart_price_<?php echo $item['id_product']; ?>" />
+					<input type="hidden" value="<?php echo $item['rewrite']; ?>" id="cart_name_<?php echo $item['id_product']; ?>" />
+					<input type="hidden" value="<?php echo $item['img']; ?>" id="cart_img_<?php echo $item['id_product']; ?>" />
 					<p class="price"><?php echo $item['price']*$view_money['exchange_money'];?> <?=$view_money['key_money'];?></p>
 				</div>
 			</div>

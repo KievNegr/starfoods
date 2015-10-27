@@ -704,7 +704,7 @@ h5 {
     text-align: center;
 }
 
-#catalog input[type="submit"], #catalog input[type="button"] {
+#catalog input[type="button"] {
     margin: 10px auto 0 auto;
     background-color: transparent;
     border: 1px solid #ABD6B4;
@@ -717,13 +717,18 @@ h5 {
     cursor: pointer;
 }
 
-#catalog input[type="button"] {
+#catalog input[type="button"]:hover {
+    background-color: rgba(171, 214, 180, .6);
+}
+
+#catalog input[type="button"].purchased {
     background-color: #D2CE66;
     cursor: default;
 }
 
-#catalog input[type="submit"]:hover {
-    background-color: rgba(171, 214, 180, .6);
+#catalog input[type="button"].purchased:hover {
+    background-color: #D2CE66;
+
 }
 
 #catalog p.price {
