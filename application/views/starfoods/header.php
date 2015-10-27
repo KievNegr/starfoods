@@ -6,13 +6,6 @@
 	<meta name="keywords" content="<?php echo $keywords; ?>">
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="<?php echo base_url('themes/' . $themePath . '/css/style.css');?>">
-	<?php
-		if(isset($index)):
-	?>
-	<link rel="stylesheet" href="<?php echo base_url('themes/' . $themePath . '/css/index.css');?>">
-	<?php
-		endif;
-	?>
 	<link rel="stylesheet" href="<?php echo base_url('themes/' . $themePath . '/css/animate.css');?>">
 	<link rel="stylesheet" href="<?php echo base_url('themes/' . $themePath . '/css/slider.css');?>">
 	<link rel="stylesheet" href="<?php echo base_url('themes/' . $themePath . '/css/ring.css');?>">
@@ -39,7 +32,11 @@
 <body>
 	<div id="wrapper">
 		<div id="header">
-			<a href="<?php echo base_url();?>"><div class="logo"></div></a>
+			<div class="logo">
+				<a href="<?php echo base_url();?>">
+					<img src="<?php echo base_url('themes/starfoods/images/logo_header.png');?>" />
+				</a>
+			</div>
 			<?php
 				/*
 					Тут меню статических страниц не выводится изза сложной структуры меню, для изменения или добавления
@@ -83,6 +80,7 @@
 					endif;
 				?>
 			</ul>
+			<div class="start-back"></div>
 		</div><!--/Header-->
 		<?php
 			if($cartCount > 0):

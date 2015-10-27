@@ -175,13 +175,20 @@ h5 {
 }
 
 #header {
-	background-color: rgb(98, 29, 16);
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100px;
-    z-index: 7;
+	width: 100%;
+	z-index: 7;
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100px;
+	background: #627d4d;
+	background: -moz-radial-gradient(center, ellipse cover,  #627d4d 0%, #1f3b08 100%);
+	background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#627d4d), color-stop(100%,#1f3b08));
+	background: -webkit-radial-gradient(center, ellipse cover,  #627d4d 0%,#1f3b08 100%);
+	background: -o-radial-gradient(center, ellipse cover,  #627d4d 0%,#1f3b08 100%);
+	background: -ms-radial-gradient(center, ellipse cover,  #627d4d 0%,#1f3b08 100%);
+	background: radial-gradient(ellipse at center,  #627d4d 0%,#1f3b08 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#627d4d', endColorstr='#1f3b08',GradientType=1 );
 }
 
 #header .menu {
@@ -211,7 +218,7 @@ h5 {
 #header .menu li a{
     font-family: OpenSansCond;
     font-size: 1.2em;
-    font-weight: normal;
+    font-weight: bold;
     color: #FFF;
     text-decoration: none;
     text-transform: uppercase;
@@ -219,27 +226,37 @@ h5 {
 }
 
 #header .menu li a:hover{
-    font-family: OpenSansCond;
-    font-size: 1.2em;
-    font-weight: normal;
     color: #FFF;
-    text-decoration: none;
-    text-transform: uppercase;
     border-bottom: 2px solid #FFF;
 }
 
 #header .logo {
-	background-image: url('../images/logo_header.png');
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: 50% 0;
     width: 50%;
-    height: 80%;
+    height: 100%;
+    text-align: center;
+    margin: 1px auto 0 auto;
+}
+
+#header .logo img{
+    width: auto;
+    max-width: 100%;
+    position: relative;
+    z-index: 3;
+    max-height: 100%;
+}
+
+#header .start-back{
+    width: 80%;
+    background-size: contain;
+    background-image: url('../images/back.png');
     position: absolute;
-    z-index: 1;
-    left: 50%;
-    top: 10px;
-    margin: 0 0 20px -26.5%;
+    bottom: 0;
+    left: 20%;
+    /* margin: 0 0 0 20%; */
+    height: 100%;
+    z-index: 0;
+    background-position: bottom right;
+    background-repeat: no-repeat;
 }
 
 .cart-header-link {
