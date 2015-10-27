@@ -35,6 +35,8 @@ class Main extends CI_Controller {
 			'index' => TRUE
 		);
 
+		$temp = $data['product'];
+
 		$this->form_validation->set_rules('cart_id', 'cart_id', 'required');
 		
 		if( $this->form_validation->run() == TRUE )
@@ -49,16 +51,41 @@ class Main extends CI_Controller {
 			
 			$this->cart->insert($cart);
 		}
-		
+
 		if( $this->cart->total_items() > 0 )
 		{
 			$data['cartCount'] = $this->cart->total_items();
 			$data['cart_price'] = $this->cart->total();
+
+			foreach( $temp as $key => $itemProd )
+			{
+				$buy = TRUE;
+				foreach($this->cart->contents() as $itemcart)
+				{
+					if($buy == TRUE)
+					{
+						if( $itemcart['id'] == $itemProd['id_product'] )
+						{
+							$data['product'][$key]['buy'] = FALSE;
+							$buy = FALSE;
+						}
+						else
+						{
+							$data['product'][$key]['buy'] = TRUE;
+						}
+					}
+				}
+				
+			}
 		}
 		else
 		{
 			$data['cartCount'] = 0;
-		}	
+			foreach( $temp as $key => $itemProd )
+			{
+				$data['product'][$key]['buy'] = TRUE;
+			}
+		}
 		
 		$this->load->view($themePath . '/header', $data);
 		$this->load->view($themePath . '/menu', $data);

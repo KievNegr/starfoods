@@ -17,14 +17,14 @@
 		</div>
 
 		<div class="slide-2">
-			<div class="left wow bounceInLeft" data-wow-duration="2s">
+			<div class="left">
 				<div class="cherry"></div>
 				<h4 class="up bold" style="margin-top: 50px; float: left;">Бла бла бла 2</h4>
 				<div style="clear: both;"></div>
 				<p>Чизкейки[2] готовят из сыра филадельфия. Используют также сахар, яйца, сливки и фрукты. Смесь из этих ингредиентов кладётся на основание из печенья или сладких крекеров. Часто добавляют приправы (ваниль, шоколад) и украшения из фруктов, например, клубники.</p>
 				<a href="#2">Ссылка куда-то >>></a>
 			</div>
-			<div class="right wow bounceIn" data-wow-duration="2s">
+			<div class="right">
 				<img src="<?php echo base_url('images/slider/italian.png');?>" />
 			</div>
 			<div style="clear: both;"></div>
@@ -32,14 +32,14 @@
 		</div>
 
 		<div class="slide-3">
-			<div class="left wow bounceInLeft" data-wow-duration="2s">
+			<div class="left">
 				<div class="cherry"></div>
 				<h4 class="up bold" style="margin-top: 50px; float: left;">Бла бла бла 3</h4>
 				<div style="clear: both;"></div>
 				<p>В Великобритании чизкейк — непечёный холодный десерт, который обычно состоит из базового слоя — толчёного печенья, смешанного со сливочным маслом и спрессованного в толстый блин, и слоя начинки — смеси из молока, сахара, сыра, сливок, иногда — желатина.</p>
 				<a href="#3">Ссылка куда-то >>></a>
 			</div>
-			<div class="right wow bounceIn" data-wow-duration="2s">
+			<div class="right">
 				<img src="<?php echo base_url('images/slider/yagmix.png');?>" />
 			</div>
 			<div style="clear: both;"></div>

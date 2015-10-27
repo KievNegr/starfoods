@@ -665,8 +665,9 @@ h5 {
 }
 
 #catalog .item:hover {
-    background-color: #DEDCA5;
+	background-color: rgba(255, 255, 255, 0.32);
     border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.23);
 }
 
 #catalog .name-item{
@@ -703,7 +704,7 @@ h5 {
     text-align: center;
 }
 
-#catalog input[type="button"] {
+#catalog input[type="submit"], #catalog input[type="button"] {
     margin: 10px auto 0 auto;
     background-color: transparent;
     border: 1px solid #ABD6B4;
@@ -716,7 +717,12 @@ h5 {
     cursor: pointer;
 }
 
-#catalog input[type="button"]:hover {
+#catalog input[type="button"] {
+    background-color: #D2CE66;
+    cursor: default;
+}
+
+#catalog input[type="submit"]:hover {
     background-color: rgba(171, 214, 180, .6);
 }
 
@@ -732,16 +738,17 @@ h5 {
     width: 180px;
     text-align: center;
     font-family: BadScript;
+    font-weight: bold;
     color: #FFF;
     padding: 10px 20px;
-    background-color: #599BC6;
+    background-color: #B0BD7B;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color .6s ease;
 }
 
 #catalog .more-load-button:hover {
-    background-color: #C65959;
+    background-color: #BD7B7B;
 }
 
 #catalog .pre-load {
